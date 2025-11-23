@@ -6,6 +6,8 @@ export default function Todos({
   onDeleteTodo,
   onEditTodo,
   onToggleComplete,
+  onFiltered,
+  onSort
 }) {
   return (
     <div className="container my-5">
@@ -13,10 +15,12 @@ export default function Todos({
         <h5 className="fw-semibold m-2">Todos</h5>
 
         <div>
-          <button className="btn btn-outline-secondary btn-sm">
+          <button onClick={() => onFiltered() }
+          className="btn btn-outline-secondary btn-sm">
             <i className="bi bi-filter"></i>
           </button>
-          <button className="btn btn-outline-secondary btn-sm">
+          <button onClick={() => onSort() }
+           className="btn btn-outline-secondary btn-sm">
             <i className="bi bi-sort-down"></i>
           </button>
         </div>

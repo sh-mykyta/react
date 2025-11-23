@@ -2,7 +2,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap-icons/font/bootstrap-icons.css";
 import React from "react";
 
-export default function Header({ onSearchTodo }) {
+export default function Header({ onSearchTodo}) {
   return (
     <header className="navbar navbar-expand-lg navbar-light bg-white border-bottom">
       <div className="container-fluid">
