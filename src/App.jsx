@@ -7,6 +7,13 @@ import Todos from "./Todos";
 
 function App() {
   const [todos, setTodos] = useState([]);
+  const [searchQuery, setSearchQuery] = useState("");
+  const displayedTodos = todos.filter((todo) =>
+    todo.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+    todo.description.toLowerCase().includes(searchQuery.toLowerCase()) ||
+    (todo.assignee &&
+      todo.assignee.toLowerCase().includes(searchQuery.toLowerCase()))
+  );
 
   function addTodo(todo){
       setTodos((prev) =>[todo, ...prev])
@@ -50,12 +57,16 @@ function App() {
       );
   }
 
+  function searechTodo(query){
+      setSearchQuery(query);
+  }
+
 
   return (
     <>
       <Sidebar />
       <div style={{ marginLeft: "260px" }}>
-        <Header />
+        <Header onSearchTodo = {searechTodo}/>
         <div className="row justify-content-center">
           <div className="col-md-8 col-lg-8">
             <Content onAddTodo = {addTodo}/>
